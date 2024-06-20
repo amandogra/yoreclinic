@@ -73,7 +73,7 @@ section {
 .because {
   animation: appear linear 3s;
   animation-timeline: view();
-  animation-range: entry 0% cover 40%;
+  animation-range: entry 0% cover 50%;
 }
 
 .hero h2 {
@@ -88,6 +88,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2.5rem;
 }
 
 .cta-primary {
@@ -102,17 +103,12 @@ section {
   line-height: 2;
   margin-inline-end: 1rem;
 }
-.cta-primary:hover {
-  background: var(--color-fore);
-  border: 2px solid var(--color-fore);
-  color: var(--color-back);
-  animation: wring 0.05s alternate ease infinite;
-}
 .cta-whatsapp {
   display: inline-block;
   height: 4rem;
   width: 4rem;
 }
+.cta-primary:hover,
 .cta-whatsapp:hover {
   transform: scale(1.1);
 }
@@ -165,23 +161,23 @@ section {
 @keyframes appear {
   from {
     opacity: 0;
-    transform: translateX(-100px);
+    /* transform: translateX(-100px); */
     /*transform: scale(-1); */
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    /* transform: translateX(0); */
     /*transform: scale(1);*/
   }
 }
-@keyframes wring {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(10deg);
-  }
-}
+/* @keyframes wring { */
+/*   from { */
+/*     transform: rotate(0deg); */
+/*   } */
+/*   to { */
+/*     transform: rotate(10deg); */
+/*   } */
+/* } */
 
 @media (prefers-color-scheme: dark) {
   body {
