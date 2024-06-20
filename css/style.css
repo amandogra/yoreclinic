@@ -1,13 +1,53 @@
-body, html {
+:root {
+  --theme-color: #669900;
+  --color-text-body: #000;
+  --color-fore: #000;
+  --color-back: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-color: #99cc00;
+    --color-text-body: #fff;
+    --color-fore: #fff;
+    --color-back: #000;
+  }
+}
+body,
+html {
   height: 100%;
 }
-.wrapper { /* thing to center */
+body {
+  color: var(--color-text-body);
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.55555555;
+}
+
+h2 {
+  /* font-size: 14vmin; */
+  font-size: clamp(3.22222rem, 14vmin, 5.333333rem);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+h2 em {
+  font-style: normal;
+  color: var(--theme-color);
+}
+
+.logo-wrapper {
+  /* thing to center */
   display: grid;
   height: 100vh;
 }
 .logo {
   margin: auto;
   position: relative;
+  /* transition: all .3s ease-in */
 }
 .logo-leaves {
   position: absolute;
@@ -23,19 +63,124 @@ body, html {
   animation-timing-function: linear;
 }
 section {
-  height: 100vh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
 }
 
+.hero,
+.because {
+  animation: appear linear 3s;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.hero h2 {
+  text-align: center;
+}
+.hero p {
+  font-size: clamp(1rem, 7vmin, 2rem);
+  margin-block-start: 1rem;
+  text-align: center;
+}
+.cta-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta-primary {
+  background: transparent;
+  color: var(--color-text-body);
+  border: 2px solid var(--color-text-body);
+  border-radius: 3rem;
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 2;
+  margin-inline-end: 1rem;
+}
+.cta-primary:hover {
+  background: var(--color-fore);
+  border: 2px solid var(--color-fore);
+  color: var(--color-back);
+  animation: wring 0.05s alternate ease infinite;
+}
+.cta-whatsapp {
+  display: inline-block;
+  height: 4rem;
+  width: 4rem;
+}
+.cta-whatsapp:hover {
+  transform: scale(1.1);
+}
+/* .hidden { */
+/*   opacity: 0; */
+/*   filter: blur(5px); */
+/*   transform: translateX(-100%); */
+/*   transition: all .5s; */
+/* } */
+/**/
+/* .visible { */
+/*   opacity: 1; */
+/*   filter: blur(0); */
+/*   transform: translateX(0); */
+/* } */
+
+/* @media (prefers-reduced-motion) { */
+/*   .hidden { */
+/*     transition: none; */
+/*   } */
+/* } */
 /* ANIMATIONS */
 @keyframes wave {
-    0% { transform: rotate( 0.0deg) }
-   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
-   20% { transform: rotate(-8.0deg) }
-   30% { transform: rotate(14.0deg) }
-   40% { transform: rotate(-4.0deg) }
-   50% { transform: rotate(10.0deg) }
-   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
-  100% { transform: rotate( 0.0deg) }
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+    /*transform: scale(-1); */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    /*transform: scale(1);*/
+  }
+}
+@keyframes wring {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,4 +191,26 @@ section {
   .logo-text path {
     fill: white;
   }
+}
+
+.vo-only {
+  /* Remove the item from normal flow */
+  position: absolute;
+  /* Workaround for falsely pronounced, smushed text */
+  white-space: nowrap;
+  /* Set it to the smallest possible size (some screen readers ignore elements with zero height and width) */
+  width: 1px;
+  height: 1px;
+  /* Hide overflowing content after resizing */
+  overflow: hidden;
+  /* Reset any property that may change the elements size */
+  border: 0;
+  padding: 0;
+  /* Clipping defines what part of an element should be displayed. */
+  /* Deprecated clip property for older browsers */
+  clip: rect(0 0 0 0);
+  /* clip-path for newer browsers. inset(50%) defines an inset rectangle that makes the content disappear.  */
+  clip-path: inset(50%);
+  /* It seems like at the moment nobody is quite sure why margin: -1px is there. On top of that it seems to cause issues (see: https://github.com/h5bp/html5-boilerplate/issues/1985). */
+  margin: -1px;
 }
