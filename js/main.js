@@ -1,7 +1,7 @@
 const options = {
   root: null,
   rootMargin: "0px",
-  threshold: [0.25, 1, 0],
+  threshold: [0.25, , 0.5, 0.75, 1, 0],
 };
 
 const  observer = new IntersectionObserver(handleIntersect, options);
@@ -13,7 +13,7 @@ function handleIntersect(entries) {
       document.querySelectorAll(".opacity-on-scroll").forEach((item) => {
         item.style.opacity = 1;
       });
-    } else if (entry.intersectionRatio === 1) {
+    } else if (entry.intersectionRatio === 0.5) {
       document.querySelectorAll(".opacity-on-scroll").forEach((item) => {
         item.style.opacity = 0;
       });
