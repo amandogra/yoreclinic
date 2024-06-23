@@ -15,6 +15,8 @@
 body,
 html {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 body {
   color: var(--color-text-body);
@@ -24,6 +26,9 @@ body {
   font-style: normal;
   font-size: 18px;
   line-height: 1.55555555;
+  overflow: auto;
+  scroll-snap-type: both mandatory;
+  overscroll-behavior-x: contain;
 }
 
 h2 {
@@ -39,6 +44,10 @@ h2 em {
   color: var(--theme-color);
 }
 
+a {
+  color: var(--theme-color);
+}
+
 .logo-wrapper {
   /* thing to center */
   display: grid;
@@ -47,7 +56,6 @@ h2 em {
 .logo {
   margin: auto;
   position: relative;
-  /* transition: all .3s ease-in */
 }
 .logo-leaves {
   position: absolute;
@@ -62,27 +70,86 @@ h2 em {
   animation: wave 0.6s infinite;
   animation-timing-function: linear;
 }
+header {
+  background: color-mix(in srgb, var(--color-back) 75%, transparent);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all .5s;
+}
+header.visible {
+  opacity: 1;
+}
+.logo-on-top {
+  margin: 0;
+  position: relative;
+  transform: scale(0.5);
+  transform-origin: 45px 35px;
+  width: 200px;
+  text-align: left;
+}
+.logo-on-top .logo-leaves {
+  animation: none;
+}
+.logo-on-top .logo-text {
+
+}
 section {
   display: grid;
   place-items: center;
   align-content: center;
   min-height: 100vh;
+  scroll-snap-stop: always;
+  scroll-snap-align: center;
 }
 
 .hero,
 .because {
+  width: clamp(20rem, 80%, 40rem );
   animation: appear linear 3s;
   animation-timeline: view();
   animation-range: entry 0% cover 50%;
+  text-align: center;
 }
 
-.hero h2 {
-  text-align: center;
-}
 .hero p {
   font-size: clamp(1rem, 7vmin, 2rem);
-  margin-block-start: 1rem;
-  text-align: center;
+  margin-top: 1rem;
+}
+.because {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+.because h2 {
+  font-size: clamp(2.77777rem, 12vmin, 3.5rem);
+}
+.because p {
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+.because-img-block {
+  padding: 3rem;
+  padding-inline-start: 0;
+}
+.because-img-block img {
+  width: 12rem;
+  height: auto;
+}
+.because-img-block.doctor img {
+  transform: matrix(1.5, 0, 0, 1.5, -10, 0);
+}
+@media (max-width: 29em) {
+  .because {
+    display: block;
+  }
+  .because-img-block img {
+    width: 8rem;
+  }
+  .because-img-block.doctor img {
+    transform: matrix(1.5, 0, 0, 1.5, -10, 12);
+  }
 }
 .cta-block {
   display: flex;
@@ -111,6 +178,9 @@ section {
 .cta-primary:hover,
 .cta-whatsapp:hover {
   transform: scale(1.1);
+}
+.cta-secondary {
+  margin-top: 2rem;
 }
 /* .hidden { */
 /*   opacity: 0; */
