@@ -3,6 +3,7 @@
   --color-text-body: #000;
   --color-fore: #000;
   --color-back: #fff;
+  --color-red: #991800;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -19,6 +20,11 @@ html {
   padding: 0;
 }
 body {
+  background-image: url('../images/wave.svg'), url('../images/wave2.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
+  background-position: bottom right, bottom left;
+    /* background-clip: cover; */
   color: var(--color-text-body);
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
@@ -140,15 +146,27 @@ section {
 .because-img-block.doctor img {
   transform: matrix(1.5, 0, 0, 1.5, -10, 0);
 }
+.because-img-block.local img {
+  transform: matrix(1.5, 0, 0, 1.5, -10, 0);
+}
 @media (max-width: 29em) {
   .because {
     display: block;
   }
+.because-img-block {
+  padding-bottom: 1rem;
+}
   .because-img-block img {
-    width: 8rem;
+    width: 6rem;
   }
   .because-img-block.doctor img {
     transform: matrix(1.5, 0, 0, 1.5, -10, 12);
+  }
+  .because-img-block.phone img {
+    transform: matrix(0.8, 0, 0, 0.8, -10, 14);
+  }
+  .because-img-block.local img {
+    transform: matrix(1, 0, 0, 1, -10, 12);
   }
 }
 .cta-block {
@@ -181,6 +199,10 @@ section {
 }
 .cta-secondary {
   margin-top: 2rem;
+}
+footer {
+  font-size: 80%;
+  padding: 1rem 1rem 6rem;
 }
 /* .hidden { */
 /*   opacity: 0; */
