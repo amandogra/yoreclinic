@@ -4,6 +4,8 @@
   --color-fore: #000;
   --color-back: #fff;
   --color-red: #991800;
+  --header-bg: color-mix(in srgb, var(--color-back) 75%, transparent);
+
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -11,6 +13,7 @@
     --color-text-body: #fff;
     --color-fore: #fff;
     --color-back: #000;
+    --header-bg: color-mix(in srgb, var(--color-fore) 5%, transparent);
   }
 }
 body,
@@ -94,16 +97,31 @@ header {
   /* align-content: center; */
   justify-content: space-between;
   align-items: center;
-  background: color-mix(in srgb, var(--color-back) 75%, transparent);
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0;
   transition: all .5s;
   z-index: 1;
 }
-header.visible {
-  opacity: 1;
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    @keyframes fade-in {
+      from { 
+        opacity: 0;
+        background: transparent
+      }
+      to   {
+        opacity: 1;
+        background: var(--header-bg)
+      }
+    }
+    
+    header, header .logo-on-top, header .cta-on-top  {
+      animation: fade-in auto linear both;
+      animation-timeline: scroll();
+      animation-range: 0% 100px;
+    }
+  }
 }
 .logo-on-top {
   margin: 0;
@@ -319,9 +337,6 @@ footer {
     background-position: bottom right, bottom left, left;
     /* background: black; */
     color: var(--color-fore);
-  }
-  header {
-    background: color-mix(in srgb, var(--color-fore) 5%, transparent);
   }
   .logo-text path {
     fill: white;
