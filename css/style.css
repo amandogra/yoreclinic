@@ -25,7 +25,7 @@ html {
 body {
   background-image: url('../images/wave.svg'), url('../images/wave2.svg');
   background-repeat: no-repeat, no-repeat;
-  background-attachment: local, local;
+  background-attachment: fixed, fixed;
   background-position: bottom right, bottom left;
   color: var(--color-text-body);
   font-family: "Nunito", sans-serif;
