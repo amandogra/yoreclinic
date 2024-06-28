@@ -58,7 +58,7 @@ a {
 
 .cta-on-header {
   background: var(--theme-color);
-  color: var(--color-fore);
+  color: var(--color-back);
   border-radius: 1rem;
   display: inline-block;
   padding: 0.2rem 1rem;
