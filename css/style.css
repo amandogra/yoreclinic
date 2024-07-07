@@ -37,6 +37,7 @@ body {
   overflow: auto;
   scroll-snap-type: both mandatory;
   overscroll-behavior-x: contain;
+  height: 100vh;
 }
 
 h2 {
