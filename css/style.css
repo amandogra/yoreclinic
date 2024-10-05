@@ -7,6 +7,7 @@
   --header-bg: color-mix(in srgb, var(--color-back) 75%, transparent);
 
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --theme-color: #99cc00;
@@ -16,12 +17,14 @@
     --header-bg: color-mix(in srgb, var(--color-fore) 5%, transparent);
   }
 }
+
 body,
 html {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+
 body {
   background-image: url('../images/wave.svg'), url('../images/wave2.svg');
   background-repeat: no-repeat, no-repeat;
@@ -75,10 +78,12 @@ a {
   display: grid;
   height: 100vh;
 }
+
 .logo {
   margin: auto;
   position: relative;
 }
+
 .logo-leaves {
   position: absolute;
   top: -14px;
@@ -87,11 +92,13 @@ a {
   animation-timing-function: ease-in-out;
   transform-origin: bottom right;
 }
+
 .logo:hover .logo-leaves {
   cursor: pointer;
   animation: wave 0.6s infinite;
   animation-timing-function: linear;
 }
+
 header {
   display: flex;
   flex-direction: row;
@@ -104,27 +111,32 @@ header {
   transition: all .5s;
   z-index: 1;
 }
+
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     @keyframes fade-in {
-      from { 
+      from {
         opacity: 0;
         background: transparent
       }
-      to   {
+
+      to {
         opacity: 1;
         background: var(--header-bg);
         backdrop-filter: blur(12px);
       }
     }
-    
-    header, header .logo-on-top, header .cta-on-top  {
+
+    header,
+    header .logo-on-top,
+    header .cta-on-top {
       animation: fade-in auto linear both;
       animation-timeline: scroll();
       animation-range: 0% 100px;
     }
   }
 }
+
 .logo-on-top {
   margin: 0;
   position: relative;
@@ -133,12 +145,11 @@ header {
   width: 200px;
   text-align: left;
 }
+
 .logo-on-top .logo-leaves {
   animation: none;
 }
-.logo-on-top .logo-text {
 
-}
 section {
   display: grid;
   place-items: center;
@@ -150,10 +161,10 @@ section {
 
 .hero,
 .because {
-  width: clamp(20rem, 80%, 40rem );
-  animation: appear linear 3s;
+  width: clamp(20rem, 80%, 40rem);
+  /* animation: appear linear 3s;
   animation-timeline: view();
-  animation-range: entry 0% cover 50%;
+  animation-range: entry 0% cover 50%;*/
   text-align: center;
 }
 
@@ -161,52 +172,66 @@ section {
   font-size: clamp(1rem, 7vmin, 2rem);
   margin-top: 1rem;
 }
+
 .because {
   text-align: left;
   display: flex;
   flex-direction: row;
 }
+
 .because h2 {
   font-size: clamp(2.77777rem, 12vmin, 3.5rem);
 }
+
 .because p {
   font-size: 1rem;
   margin-top: 2rem;
 }
+
 .because-img-block {
   padding: 3rem;
   padding-inline-start: 0;
 }
+
 .because-img-block img {
   width: 12rem;
   height: auto;
 }
+
 .because-img-block.doctor img {
   transform: matrix(1.5, 0, 0, 1.5, -10, 0);
 }
+
 .because-img-block.local img {
   transform: matrix(1.5, 0, 0, 1.5, -10, 0);
 }
+
 @media (max-width: 29em) {
   .because {
     display: block;
   }
+
   .because-img-block {
     padding-bottom: 1rem;
   }
+
   .because-img-block img {
     width: 6rem;
   }
+
   .because-img-block.doctor img {
     transform: matrix(1.5, 0, 0, 1.5, -10, 12);
   }
+
   .because-img-block.phone img {
     transform: matrix(0.8, 0, 0, 0.8, -10, 14);
   }
+
   .because-img-block.local img {
     transform: matrix(1, 0, 0, 1, -10, 12);
   }
 }
+
 .cta-block {
   display: flex;
   justify-content: center;
@@ -226,43 +251,53 @@ section {
   line-height: 2;
   margin-inline-end: 1rem;
 }
+
 .cta-whatsapp {
   display: inline-block;
   height: 4rem;
   width: 4rem;
 }
+
 .cta-primary:hover,
 .cta-whatsapp:hover {
   transform: scale(1.1);
 }
+
 .cta-secondary {
   margin-top: 2rem;
 }
+
 .address-section {
-  width: clamp(20rem, 80%, 40rem );
+  width: clamp(20rem, 80%, 40rem);
 }
+
 .address-section h3 {
   margin-bottom: 0;
 }
+
 .address-section p {
   margin-top: 0.5rem;
   margin-bottom: 0;
 }
+
 .address-section p.footnote {
-  margin:0;
+  margin: 0;
   padding: 0;
   opacity: 0.7;
   font-size: 80%;
 }
+
 footer {
   font-size: 80%;
   padding: 1rem 1rem 2rem;
 }
+
 @media (max-width: 30em) {
   footer {
     padding-bottom: 6rem;
   }
 }
+
 /* .hidden { */
 /*   opacity: 0; */
 /*   filter: blur(5px); */
@@ -286,24 +321,33 @@ footer {
   0% {
     transform: rotate(0deg);
   }
+
   10% {
     transform: rotate(14deg);
-  } /* The following five values can be played with to make the waving more or less extreme */
+  }
+
+  /* The following five values can be played with to make the waving more or less extreme */
   20% {
     transform: rotate(-8deg);
   }
+
   30% {
     transform: rotate(14deg);
   }
+
   40% {
     transform: rotate(-4deg);
   }
+
   50% {
     transform: rotate(10deg);
   }
+
   60% {
     transform: rotate(0deg);
-  } /* Reset for the last half to pause */
+  }
+
+  /* Reset for the last half to pause */
   100% {
     transform: rotate(0deg);
   }
@@ -315,12 +359,14 @@ footer {
     /* transform: translateX(-100px); */
     /*transform: scale(-1); */
   }
+
   to {
     opacity: 1;
     /* transform: translateX(0); */
     /*transform: scale(1);*/
   }
 }
+
 /* @keyframes wring { */
 /*   from { */
 /*     transform: rotate(0deg); */
@@ -333,13 +379,14 @@ footer {
 @media (prefers-color-scheme: dark) {
   body {
     background-image: url('../images/wave.svg'), url('../images/wave2.svg'),
-    linear-gradient(to right, var(--color-back), var(--color-back));
+      linear-gradient(to right, var(--color-back), var(--color-back));
     background-repeat: no-repeat, no-repeat no-repeat;
     background-attachment: fixed, fixed, no-scroll;
     background-position: bottom right, bottom left, left;
     /* background: black; */
     color: var(--color-fore);
   }
+
   .logo-text path {
     fill: white;
   }

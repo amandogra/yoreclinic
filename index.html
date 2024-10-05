@@ -2,19 +2,33 @@
 <html lang="en">
 
 <head>
-  <title></title>
+  <title>Yore Clinic</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A complete family clinic and critical care unit, located in Mohali, Punjab.">
+  <meta name="keywords"
+    content="clinic, mohali, doctor, family doctor, chandigarh, care, yore, yore clinic, your clinic, hospital, ayurvedic">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#669900">
+  <meta name="msapplication-TileColor" content="#669900">
+  <meta name="theme-color" content="#ffffff">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="home">
   <header class="visible">
     <div class="logo-on-top">
+      <h1 class="vo-only">Yore Clinic</h1>
       <svg class="logo-leaves" width="28" height="37" viewBox="0 0 28 37" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -121,12 +135,12 @@
   </section>
   <section>
     <div class="because">
-      <div class="because-img-block doctor">
+      <div class="because-img-block doctor  wow fadeInUp" data-wow-delay="0.1s">
         <img src="images/doctor.svg" alt="" />
       </div>
-      <div class="because-text-block">
+      <div class="because-text-block wow fadeInUp" data-wow-delay="0.1s">
         <h2>your own <br /><em>family</em> doctor</h2>
-        <p>
+        <p class"wow fadeInUp" data-wow-delay="0.1s">
           Dr. Amit Dogra <br />
           B.A.M.S. (P. U. Chandigarh), MD (AM)<br />
           S.D.A.C.H., MANIMA<br />
@@ -164,7 +178,7 @@
           Due to your close bond with the doctor, you’ll always feel that Yore clinic is located in your local
           vicinity.
         </p>
-        <a href="tel:+919646741501" class="cta-secondary">Get Directions</a>
+        <a href="https://maps.app.goo.gl/P97j2D11fday26528" class="cta-secondary">Get Directions</a>
       </div>
     </div>
   </section>
@@ -186,7 +200,12 @@
     </div>
   </section>
   <footer>&copy; All rights reserved. Yore Clinic &amp; Dr. Amit Dogra</footer>
-  <script src="./js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+    integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    new WOW().init();
+  </script>
 </body>
 
 </html>
